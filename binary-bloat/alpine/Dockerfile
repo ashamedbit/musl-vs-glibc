@@ -3,8 +3,8 @@ RUN apk add --no-cache musl-dev gcc python3 python3-dev libffi-dev libcap-dev ma
 
 COPY hello-world.c /hello-world.c
 
-RUN gcc  /hello-world.c -O3 -static -o /hello-world-static
+RUN gcc  /hello-world.c -s -O3 -static -o /hello-world-static
 RUN du -sh /hello-world-static
 
-RUN gcc -o /hello-world /hello-world.c -O3
+RUN gcc -o /hello-world /hello-world.c -s -O3
 RUN du -sh /hello-world
